@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pixel AI Chat</title>
+    <meta name="description" content="A pixel-style AI chat template for Cloudflare Pages.">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="chat-panel" aria-label="AI chat">
+        <header class="panel-header">
+          <div>
+            <p class="panel-kicker">PIXEL AI CHAT</p>
+            <h1>Chat Room</h1>
+          </div>
+          <button id="clearChat" class="ghost-button" type="button">Clear</button>
+        </header>
+
+        <nav class="mode-tabs" aria-label="Chat settings">
+          <button class="mode-tab active" type="button" data-panel="chat">Chat</button>
+          <button class="mode-tab" type="button" data-panel="api">API</button>
+          <button class="mode-tab" type="button" data-panel="persona">Persona</button>
+        </nav>
+
+        <section id="chatPanel" class="panel-view active" data-panel-view="chat">
+          <div id="messages" class="messages" aria-live="polite"></div>
+        </section>
+
+        <section id="apiPanel" class="panel-view settings-panel" data-panel-view="api">
+          <label class="setting-field">
+            <span>Provider</span>
+            <input id="providerInput" value="DeepSeek-compatible" disabled>
+          </label>
+          <label class="setting-field">
+            <span>API Key</span>
+            <input id="apiKeyInput" type="password" placeholder="sk-...">
+          </label>
+          <label class="setting-field">
+            <span>Base URL</span>
+            <input id="baseUrlInput" value="https://api.deepseek.com">
+          </label>
+          <label class="setting-field">
+            <span>Model</span>
+            <input id="modelInput" value="deepseek-chat" placeholder="deepseek-chat">
+          </label>
+          <button id="saveApiButton" class="settings-button" type="button">Save Settings</button>
+          <button id="testApiButton" class="settings-button secondary" type="button">Test Connection</button>
+          <p id="apiStatus" class="setting-status">Not tested.</p>
+        </section>
+
+        <section id="personaPanel" class="panel-view settings-panel" data-panel-view="persona">
+          <label class="setting-field">
+            <span>System Persona</span>
+            <textarea id="personaInput" rows="10"></textarea>
+          </label>
+          <label class="setting-field">
+            <span>Assistant Name</span>
+            <input id="assistantNameInput" maxlength="32" placeholder="Pixel Companion">
+          </label>
+          <button id="savePersonaButton" class="settings-button" type="button">Save Persona</button>
+          <p id="personaStatus" class="setting-status">Persona is sent with the next message.</p>
+        </section>
+
+        <form id="chatForm" class="composer">
+          <textarea id="chatInput" rows="2" maxlength="800" placeholder="Type a message..."></textarea>
+          <button id="sendButton" type="submit">Send</button>
+        </form>
+      </section>
+
+      <section class="room-panel" aria-label="Pixel room">
+        <iframe class="companion-frame" src="/companion/index.html" title="Pixel companion"></iframe>
+      </section>
+    </main>
+
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>
+

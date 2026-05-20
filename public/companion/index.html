@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pixel Companion</title>
+    <link rel="stylesheet" href="/companion/style.css">
+  </head>
+  <body>
+    <main class="scene" aria-label="Pixel companion scene">
+      <div class="stars" id="stars"></div>
+      <section class="hud">
+        <span id="statusLabel">Idle</span>
+        <span id="moodLabel">Ready</span>
+      </section>
+      <div class="desk"></div>
+      <div class="companion" id="companion" aria-hidden="true">
+        <div class="companion-shadow"></div>
+        <div class="companion-body">
+          <div class="eye left"></div>
+          <div class="eye right"></div>
+          <div class="mouth"></div>
+        </div>
+        <div class="speech hidden" id="speech"></div>
+      </div>
+      <nav class="controls" aria-label="Companion controls">
+        <button type="button" data-action="idle">Idle</button>
+        <button type="button" data-action="wave">Wave</button>
+        <button type="button" data-action="think">Think</button>
+        <button type="button" data-action="type">Type</button>
+      </nav>
+    </main>
+    <script src="/companion/app.js"></script>
+  </body>
+</html>
+

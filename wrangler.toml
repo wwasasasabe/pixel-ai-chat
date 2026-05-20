@@ -1,0 +1,8 @@
+name = "pixel-ai-chat"
+pages_build_output_dir = "public"
+compatibility_date = "2026-05-20"
+
+[vars]
+MODEL_BASE_URL = "https://api.deepseek.com"
+MODEL_NAME = "deepseek-chat"
+
